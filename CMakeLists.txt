@@ -177,8 +177,7 @@ IF(MAKE_NOISYNATURE)
 		NoisyNature/myentity.h
 		NoisyNature/myscene.cpp
 		NoisyNature/myscene.h
-		NoisyNature/NoiseGenerator.cpp
-		NoisyNature/NoiseGEnerator.h
+		
 	)
 	target_link_libraries(NoisyNature
 		${ALL_GRAPHICS_LIBS}

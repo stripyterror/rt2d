@@ -1,16 +1,10 @@
-/**
- * This class describes MyScene behavior.
- *
- * Copyright 2017 Rik Teerling <rik@onandoffables.com>
- */
-
 #include <fstream>
 #include <sstream>
 
 #include "myscene.h"
 
  //RGBAColor terrain[3] = { water, grass, wetgrass }; // debug
-RGBAColor terrain[3] = { water, grass, wetgrass }; // cheat
+RGBAColor terrain[3] = { water, grass, wetgrass }; 
 
 MyScene::MyScene() : Scene()
 {
@@ -78,7 +72,7 @@ void MyScene::update(float deltaTime)
 				double c = pn->noise(9 * x, 9 * y, 9 * z) * 1;
 
 				// average of noises ("octaves")
-				double n = (a + b + c) / 6;
+				double n = (a + b + c) / 7;
 
 				// make an int in range 0-255 from n
 				int p = floor(255 * n);
