@@ -11,6 +11,8 @@ MyScene::MyScene() : Scene()
 {
 	mybunny = new MyBunny();
 	mybunny->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	mybunny->rotation = Point2(180, 0);
+	mybunny->scale = Point2(2, 4);
 
 	
 
@@ -26,9 +28,9 @@ MyScene::MyScene() : Scene()
 	// container for Sprite with custom Texture
 	entity = new BasicEntity();
 	entity->position = Point2(SWIDTH / 2, SHEIGHT / 2);
-	entity->scale = Point2(8.0f, 8.0f);
+	entity->scale = Point2(32.0f, 32.0f);
 	// width, height, bitdepth, filter, wrap
-	PixelBuffer pixels = PixelBuffer(80, 80, 3, 0, 0);
+	PixelBuffer pixels = PixelBuffer(32, 32, 3, 0, 0);
 	entity->addDynamicSprite(&pixels);
 
 	contrast = true;
