@@ -183,6 +183,12 @@ IF(MAKE_NOISYNATURE)
 		NoisyNature/myTree.h
 		NoisyNature/myFlora.cpp
 		NoisyNature/myFlora.h
+		NoisyNature/myFauna.cpp
+		NoisyNature/myFauna.h
+		NoisyNature/myFox.cpp
+		NoisyNature/myFox.h
+		NoisyNature/myBunny.cpp
+		NoisyNature/myBunny.h
 	)
 	target_link_libraries(NoisyNature
 		${ALL_GRAPHICS_LIBS}

@@ -4,6 +4,7 @@
 #include <rt2d/scene.h>
 #include <rt2d/noise.h>
 #include <rt2d/util.h>
+#include "myBunny.h"
 
 class BasicEntity : public Entity
 {
@@ -31,6 +32,8 @@ public:
 private:
 	Timer t;
 	BasicEntity* entity;
+
+	MyBunny* mybunny;
 
 	PerlinNoise* pn;
 

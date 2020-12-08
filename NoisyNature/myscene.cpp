@@ -3,11 +3,17 @@
 
 #include "myscene.h"
 
+
  //RGBAColor terrain[3] = { water, grass, wetgrass }; // debug
 RGBAColor terrain[3] = { water, grass, wetgrass }; 
 
 MyScene::MyScene() : Scene()
 {
+	mybunny = new MyBunny();
+	mybunny->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+
+	
+
 	t.start();
 
 	srand((unsigned)time(nullptr));
@@ -32,7 +38,7 @@ MyScene::MyScene() : Scene()
 	
 
 	this->addChild(entity);
-	
+	this->addChild(mybunny);
 }
 
 MyScene::~MyScene()
@@ -40,7 +46,8 @@ MyScene::~MyScene()
 	this->removeChild(entity);
 	delete entity;
 
-	
+	this->removeChild(mybunny);
+	delete mybunny;
 
 	delete pn;
 }
