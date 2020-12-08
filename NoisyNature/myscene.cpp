@@ -22,7 +22,7 @@ MyScene::MyScene() : Scene()
 	entity->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	entity->scale = Point2(8.0f, 8.0f);
 	// width, height, bitdepth, filter, wrap
-	PixelBuffer pixels = PixelBuffer(64, 64, 3, 0, 0);
+	PixelBuffer pixels = PixelBuffer(80, 80, 3, 0, 0);
 	entity->addDynamicSprite(&pixels);
 
 	contrast = true;
