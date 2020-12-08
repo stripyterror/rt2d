@@ -40,7 +40,9 @@ MyScene::MyScene() : Scene()
 	
 
 	this->addChild(entity);
-	this->addChild(mybunny);
+
+
+	
 }
 
 MyScene::~MyScene()
@@ -122,5 +124,10 @@ void MyScene::update(float deltaTime)
 		}
 
 		t.start();
+	}
+
+	if (input()->getKey(KeyCode::B))
+	{
+		this->addChild(mybunny);
 	}
 }
