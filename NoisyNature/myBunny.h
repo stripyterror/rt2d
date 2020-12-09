@@ -19,6 +19,7 @@ public:
 
 private:
 	/* add your private declarations */
+	int health;
 };
 
 #endif

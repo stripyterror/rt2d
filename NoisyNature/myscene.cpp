@@ -2,6 +2,7 @@
 #include <sstream>
 
 #include "myscene.h"
+#include "myBunny.h"
 
 
  //RGBAColor terrain[3] = { water, grass, wetgrass }; // debug
@@ -120,7 +121,7 @@ void MyScene::update(float deltaTime)
 	}
 
 	//lets you spawn a bunny with the B button
-	if (input()->getKey(KeyCode::B))
+	if (input()->getKeyDown(KeyCode::B))
 	{
 		mybunny = new MyBunny();
 
