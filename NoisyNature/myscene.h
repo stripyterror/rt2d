@@ -33,6 +33,7 @@ private:
 	Timer t;
 	BasicEntity* entity;
 
+	std::vector<MyBunny*> bunnylist;
 	MyBunny* mybunny;
 
 	PerlinNoise* pn;

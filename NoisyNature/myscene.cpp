@@ -2,8 +2,6 @@
 #include <sstream>
 
 #include "myscene.h"
-#include "myBunny.h"
-
 
  //RGBAColor terrain[3] = { water, grass, wetgrass }; // debug
 RGBAColor terrain[3] = { water, grass, wetgrass }; 
@@ -44,8 +42,11 @@ MyScene::~MyScene()
 	this->removeChild(entity);
 	delete entity;
 
-	this->removeChild(mybunny);
-	delete mybunny;
+	for(MyBunny* b : bunnylist) 
+	{
+		this->removeChild(b);
+		delete b;
+	}
 
 	delete pn;
 }
@@ -123,8 +124,9 @@ void MyScene::update(float deltaTime)
 	//lets you spawn a bunny with the B button
 	if (input()->getKeyDown(KeyCode::B))
 	{
-		mybunny = new MyBunny();
+		MyBunny* bunny = new MyBunny();
 
-		this->addChild(mybunny);
+		this->addChild(bunny);
+		bunnylist.push_back(bunny);
 	}
 }
