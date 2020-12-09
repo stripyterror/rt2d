@@ -1,4 +1,3 @@
-
 #include "myBunny.h"
 
 MyBunny::MyBunny() : Entity()

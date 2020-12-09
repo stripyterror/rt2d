@@ -48,6 +48,12 @@ MyScene::~MyScene()
 		delete b;
 	}
 
+	for (MyBush* bu : bushlist)
+	{
+		this->removeChild(bu);
+		delete bu;
+	}
+
 	delete pn;
 }
 
@@ -128,5 +134,14 @@ void MyScene::update(float deltaTime)
 
 		this->addChild(bunny);
 		bunnylist.push_back(bunny);
+	}
+
+	//lets you spawn a bush with the U button
+	if (input()->getKeyDown(KeyCode::U))
+	{
+		MyBush* bush = new MyBush();
+
+		this->addChild(bush);
+		bushlist.push_back(bush);
 	}
 }

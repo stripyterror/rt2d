@@ -5,6 +5,7 @@
 #include <rt2d/noise.h>
 #include <rt2d/util.h>
 #include "myBunny.h"
+#include "myBush.h"
 
 class BasicEntity : public Entity
 {
@@ -35,6 +36,8 @@ private:
 
 	std::vector<MyBunny*> bunnylist;
 	MyBunny* mybunny;
+	std::vector<MyBush*> bushlist;
+	MyBush* mybush;
 
 	PerlinNoise* pn;
 
