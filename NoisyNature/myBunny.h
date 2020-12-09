@@ -20,6 +20,10 @@ public:
 private:
 	/* add your private declarations */
 	int health;
+
+	Timer ht;
+	int hunger;
+	int hungerdelay;
 };
 
 #endif

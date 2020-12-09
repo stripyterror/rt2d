@@ -12,6 +12,12 @@ MyBunny::MyBunny() : Entity()
 	this->scale = Point2(2, 4);
 
 	this->health = 10;
+	this->hunger = 0;
+	this->hungerdelay = 5;
+
+	ht.start();
+
+	
 }
 
 MyBunny::~MyBunny()
@@ -21,5 +27,9 @@ MyBunny::~MyBunny()
 
 void MyBunny::update(float deltaTime) 
 {
-
+	if (ht.seconds() > hungerdelay)
+	{
+		ht.start();
+		this->hunger += 5;
+	}
 }
