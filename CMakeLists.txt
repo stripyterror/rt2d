@@ -6,7 +6,7 @@ project (rt2d)
 ####################################################################
 OPTION(MAKE_NOISYNATURE "Make NoisyNature start application" ON)
 OPTION(MAKE_START "Make RT2D start application" ON)
-OPTION(MAKE_DEMO "Make RT2D demo (tests) application" OFF)
+OPTION(MAKE_DEMO "Make RT2D demo (tests) application" ON)
 OPTION(MAKE_CANVAS_DEMO "Make RT2D Canvas demo (tests) application" OFF)
 OPTION(MAKE_FLOCKING "Make flocking application" OFF)
 OPTION(MAKE_BASIC3D "Make basic3D application" OFF)

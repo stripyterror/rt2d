@@ -9,13 +9,6 @@ RGBAColor terrain[3] = { water, grass, wetgrass };
 
 MyScene::MyScene() : Scene()
 {
-	mybunny = new MyBunny();
-	mybunny->position = Point2(SWIDTH / 2, SHEIGHT / 2);
-	mybunny->rotation = Point2(180, 0);
-	mybunny->scale = Point2(2, 4);
-
-	
-
 	t.start();
 
 	srand((unsigned)time(nullptr));
@@ -126,8 +119,11 @@ void MyScene::update(float deltaTime)
 		t.start();
 	}
 
+	//lets you spawn a bunny with the B button
 	if (input()->getKey(KeyCode::B))
 	{
+		mybunny = new MyBunny();
+
 		this->addChild(mybunny);
 	}
 }
