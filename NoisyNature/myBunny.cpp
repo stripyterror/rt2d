@@ -13,9 +13,6 @@ MyBunny::MyBunny() : Entity()
 	this->scale = Point2(2, 4);
 
 	this->health = 10;
-
-	//health test
-	std::cout << "bunny health = " << this->health << std::endl;
 }
 
 MyBunny::~MyBunny()
