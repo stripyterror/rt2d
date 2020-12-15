@@ -12,6 +12,7 @@ MyBunny::MyBunny() : Entity()
 	this->scale = Point2(1, 2);
 
 	this->health = 10;
+	this->speed = 100;
 	this->hunger = 0;
 	this->hungerdelay = 5;
 
@@ -54,7 +55,8 @@ void MyBunny::Walk(float deltaTime)
 {
 	if (closestbush != nullptr)
 	{
-		this->position -= (this->position - closestbush->position) * deltaTime;
+		Vector2 np = this->position - closestbush->position;
+		this->position -= np.getNormalized() * (speed * deltaTime);
 	}
 }
 

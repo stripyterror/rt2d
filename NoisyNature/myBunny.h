@@ -26,6 +26,7 @@ public:
 private:
 	/* add your private declarations */
 	int health;
+	float speed;
 
 	Timer ht;
 	int hunger;
