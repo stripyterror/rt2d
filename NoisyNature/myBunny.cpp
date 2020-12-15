@@ -15,6 +15,9 @@ MyBunny::MyBunny() : Entity()
 	this->hunger = 0;
 	this->hungerdelay = 5;
 
+	velocity.x = 1;
+	velocity.y = 1;
+
 	ht.start();
 
 	
@@ -26,6 +29,7 @@ MyBunny::~MyBunny()
 	
 }
 
+//searches for the closest bush to the bunny
 MyBush* MyBunny::FindPlant(std::vector<MyBush*> & bl)
 {
 	float distanceToClosestBush = 100000000;
@@ -45,8 +49,19 @@ MyBush* MyBunny::FindPlant(std::vector<MyBush*> & bl)
 	return closestbush;
 } 
 
+//lets the bunny walk
+void MyBunny::Walk(float deltaTime)
+{
+	if (closestbush != nullptr)
+	{
+		this->position -= (this->position - closestbush->position) * deltaTime;
+	}
+}
+
 void MyBunny::update(float deltaTime) 
 {
+	Walk(deltaTime);
+
 	if (ht.seconds() > hungerdelay)
 	{
 		ht.start();

@@ -16,6 +16,8 @@ public:
 
 	MyBush* FindPlant(std::vector<MyBush*> & bl);
 
+	void Walk(float deltaTime);
+
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
@@ -24,11 +26,13 @@ public:
 private:
 	/* add your private declarations */
 	int health;
+	float speed;
 
 	Timer ht;
 	int hunger;
 	int hungerdelay;
 	MyBush* closestbush;
+	Vector2 velocity;
 };
 
 #endif

@@ -136,6 +136,7 @@ void MyScene::update(float deltaTime)
 		bunnylist.push_back(bunny);
 	}
 
+	//lets every bunny find the closest bush there is
 	for (MyBunny* bunny :bunnylist)
 	{
 		bunny->FindPlant(bushlist);
