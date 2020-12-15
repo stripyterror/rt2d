@@ -35,9 +35,8 @@ private:
 	BasicEntity* entity;
 
 	std::vector<MyBunny*> bunnylist;
-	MyBunny* mybunny;
+
 	std::vector<MyBush*> bushlist;
-	MyBush* mybush;
 
 	PerlinNoise* pn;
 

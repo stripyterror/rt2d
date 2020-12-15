@@ -3,6 +3,8 @@
 #define MYBUNNY_H
 
 #include <rt2d/entity.h>
+#include "myBush.h"
+
 
 class MyBunny : public Entity
 {
@@ -11,6 +13,8 @@ public:
 	MyBunny();
 	/// @brief Destructor
 	virtual ~MyBunny();
+
+	MyBush* FindPlant(std::vector<MyBush*> & bl);
 
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
@@ -24,6 +28,7 @@ private:
 	Timer ht;
 	int hunger;
 	int hungerdelay;
+	MyBush* closestbush;
 };
 
 #endif

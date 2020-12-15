@@ -136,6 +136,11 @@ void MyScene::update(float deltaTime)
 		bunnylist.push_back(bunny);
 	}
 
+	for (MyBunny* bunny :bunnylist)
+	{
+		bunny->FindPlant(bushlist);
+	}
+
 	//lets you spawn a bush with the U button
 	if (input()->getKeyDown(KeyCode::U))
 	{
@@ -143,5 +148,8 @@ void MyScene::update(float deltaTime)
 
 		this->addChild(bush);
 		bushlist.push_back(bush);
+
 	}
+
+
 }

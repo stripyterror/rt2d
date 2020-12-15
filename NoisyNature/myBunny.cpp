@@ -18,12 +18,32 @@ MyBunny::MyBunny() : Entity()
 	ht.start();
 
 	
+	closestbush = nullptr;
 }
 
 MyBunny::~MyBunny()
 {
 	
 }
+
+MyBush* MyBunny::FindPlant(std::vector<MyBush*> & bl)
+{
+	float distanceToClosestBush = 100000000;
+
+	closestbush = nullptr;
+
+	for (MyBush* cb : bl)
+	{
+		Vector2 distanceToBush = cb->position - this->position;
+		float dtb = distanceToBush.getLength();
+		if (dtb < distanceToClosestBush)
+		{
+			distanceToClosestBush = dtb;
+			closestbush = cb;
+		}
+	}
+	return closestbush;
+} 
 
 void MyBunny::update(float deltaTime) 
 {
