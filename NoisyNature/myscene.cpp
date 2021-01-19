@@ -1,5 +1,6 @@
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 #include "myscene.h"
 
@@ -152,5 +153,35 @@ void MyScene::update(float deltaTime)
 
 	}
 
+	for (MyBunny* b : bunnylist)
+	{
+		if (b->doneEating)
+		{
+			//this->removeChild(b->closestbush);
+			//delete b->closestbush;
 
+			b->closestbush->isEaten = true;
+
+			b->closestbush = nullptr;
+			b->distanceToClosestBush = 10000000;
+			b->doneEating = false;
+		}
+	}
+
+	for (MyBush* b : bushlist) 
+	{
+		if (b->isEaten) 
+		{
+			this->removeChild(b);
+
+			std::vector<MyBush*>::iterator iterator = std::find(bushlist.begin(), bushlist.end(), b);
+
+			if (iterator != bushlist.cend()) 
+			{
+				int index = std::distance(bushlist.begin(), iterator);
+				bushlist.erase(bushlist.begin() + index);
+			}
+			delete b;
+		}
+	}
 }

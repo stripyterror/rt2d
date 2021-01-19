@@ -1,5 +1,6 @@
 #include "myBunny.h"
 
+
 MyBunny::MyBunny() : Entity()
 {
 	this->addSprite("assets/Bunny.tga");
@@ -14,7 +15,8 @@ MyBunny::MyBunny() : Entity()
 	this->health = 10;
 	this->speed = 100;
 	this->hunger = 0;
-	this->hungerdelay = 5;
+	this->hungerdelay = 1;
+	this->eatingtime = 5;
 
 	velocity.x = 1;
 	velocity.y = 1;
@@ -23,6 +25,7 @@ MyBunny::MyBunny() : Entity()
 
 	
 	closestbush = nullptr;
+	Point2 test(10, 10);
 }
 
 MyBunny::~MyBunny()
@@ -33,14 +36,12 @@ MyBunny::~MyBunny()
 //searches for the closest bush to the bunny
 MyBush* MyBunny::FindPlant(std::vector<MyBush*> & bl)
 {
-	float distanceToClosestBush = 100000000;
-
-	closestbush = nullptr;
+	//closestbush = nullptr;
 
 	for (MyBush* cb : bl)
 	{
 		Vector2 distanceToBush = cb->position - this->position;
-		float dtb = distanceToBush.getLength();
+		dtb = distanceToBush.getLength();
 		if (dtb < distanceToClosestBush)
 		{
 			distanceToClosestBush = dtb;
@@ -51,22 +52,55 @@ MyBush* MyBunny::FindPlant(std::vector<MyBush*> & bl)
 } 
 
 //lets the bunny walk
-void MyBunny::Walk(float deltaTime)
+void MyBunny::WalktoPlant(float deltaTime)
 {
-	if (closestbush != nullptr)
+	if (closestbush != nullptr && this->position != closestbush->position)
 	{
 		Vector2 np = this->position - closestbush->position;
 		this->position -= np.getNormalized() * (speed * deltaTime);
 	}
 }
 
+bool MyBunny::Eat()
+{
+	if (inEatingDistance && eating == false) {
+		eb.start();
+		eating = true;
+	}
+
+	if (eb.seconds() >= 5)
+	{
+		std::cout << "yum yum in my tum tum " << this->eating << std::endl;
+		inEatingDistance = false;
+		doneEating = true;
+		eating = false;
+		
+		
+	}
+	return doneEating;
+}
+
 void MyBunny::update(float deltaTime) 
 {
-	Walk(deltaTime);
 
 	if (ht.seconds() > hungerdelay)
 	{
 		ht.start();
 		this->hunger += 5;
 	}
+
+	if (hunger >= 0 && eating == false)
+	{
+		WalktoPlant(deltaTime);
+	}
+
+	if (closestbush != nullptr)
+	{
+		if (distanceToClosestBush <= 5)
+		{
+			inEatingDistance = true;
+			Eat();
+		}
+	}
+	std::cout << "bunny is eating = " << this->distanceToClosestBush << std::endl;
 }
