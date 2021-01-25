@@ -170,6 +170,18 @@ void MyScene::update(float deltaTime)
 
 	for (MyBush* b : bushlist) 
 	{
+		if (b->childBirth == true)
+		{
+			MyBush* bush = new MyBush();
+
+			bush->position.x = std::rand() % 90 + 11 + b->position.x;
+			bush->position.y = std::rand() % 90 + 11 + b->position.y;
+
+			this->addChild(bush);
+			bushlist.push_back(bush);
+			b->childBirth = false;
+		}
+
 		if (b->isEaten) 
 		{
 			this->removeChild(b);

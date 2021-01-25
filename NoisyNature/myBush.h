@@ -11,11 +11,19 @@ public:
 	/// @brief Destructor
 	virtual ~MyBush();
 
+	void MyBush::Duplicate();
+
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
 	bool isEaten;
+
+	bool childCooldown = false;
+	bool childBirth = false;
+
+	float childtimer;
+	Timer vt;
 
 private:
 	/* add your private declarations */

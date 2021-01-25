@@ -15,7 +15,7 @@ MyBunny::MyBunny() : Entity()
 	this->health = 10;
 	this->speed = 100;
 	this->hunger = 0;
-	this->hungerdelay = 1;
+	this->hungerdelay = 3;
 	this->eatingtime = 5;
 
 	velocity.x = 1;
@@ -70,7 +70,6 @@ bool MyBunny::Eat()
 
 	if (eb.seconds() >= 5)
 	{
-		std::cout << "yum yum in my tum tum " << this->eating << std::endl;
 		inEatingDistance = false;
 		doneEating = true;
 		eating = false;
@@ -89,7 +88,7 @@ void MyBunny::update(float deltaTime)
 		this->hunger += 5;
 	}
 
-	if (hunger >= 0 && eating == false)
+	if (hunger >= 20 && eating == false)
 	{
 		WalktoPlant(deltaTime);
 	}
@@ -102,5 +101,4 @@ void MyBunny::update(float deltaTime)
 			Eat();
 		}
 	}
-	std::cout << "bunny is eating = " << this->distanceToClosestBush << std::endl;
 }
